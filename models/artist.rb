@@ -22,12 +22,12 @@ def self.show_all()
   sql = "SELECT * FROM artists"
   results = SqlRunner.run(sql)
   return results.map {|result| Artist.new(result) }
-end 
+end
 
-# def delete_all()
-#   sql = "DELETE * FROM artist"
-#   SqlRunner.run(sql)
-# end
+def self.delete_all()
+  sql = "DELETE FROM artists"
+  SqlRunner.run(sql)
+end
 
 
 end #end of the class
