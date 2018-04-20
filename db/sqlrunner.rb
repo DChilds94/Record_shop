@@ -5,8 +5,8 @@ class SqlRunner
 def self.run(sql, values = [])
   begin
     db = PG.connect({dbname: "record_shop", host: "localhost"})
-    db.prepare("query", values)
-    result = db.exec_prepare("query", sql)
+    db.prepare('query', sql)
+    result = db.exec_prepared('query', values)
   ensure
     db.close() if db != nil
   end
