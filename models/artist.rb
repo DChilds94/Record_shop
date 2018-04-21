@@ -19,13 +19,13 @@ def save()
 end
 
 
-# def self.find_by_id(id)
-#   sql = "SELECT * FROM artists WHERE id = $1"
-#   values = [@id]
-#   result = SqlRunner.run(sql, values)
-#   return Artist.new(result.first)
-# end
-# currently unable to make work - look at later
+def self.find_by_id(id)
+  sql = "SELECT * FROM artists WHERE id = $1"
+  values = [id]
+  result = SqlRunner.run(sql, values)
+  return Artist.new(result.first)
+end
+
 
 def self.show_all()
   sql = "SELECT * FROM artists"
@@ -43,6 +43,14 @@ def self.delete_artist(id)
   values = [@id]
   SqlRunner.run(sql, values)
 end
+
+# def update(name)
+#   sql = "UPDATE artists SET name = $1 WHERE id = $2"
+#   values = [@name, @id]
+#   SqlRunner.run(sql, values)
+# end
+# method is displaying a change however, not able to save the update in db - check on Monday
+
 
 
 end #end of the class
