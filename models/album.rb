@@ -4,7 +4,7 @@ require("pry-byebug")
 class Album
 
 attr_reader :id
-attr_accessor :title, :stock, :artist_id
+attr_accessor :title, :stock, :artist_
 
 def initialize(options)
   @id = options['id'].to_i if options['id']
@@ -22,9 +22,12 @@ end
     @id = result.first['id'].to_i
   end
 
-  # def self.find_by_id()
-  #
-  # end
+  def self.find_by_id(id)
+    sql = "SELECT * FROM albums WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return Album.new(result.first)
+  end
 
   def self.show_all()
     sql = "SELECT * FROM albums"
