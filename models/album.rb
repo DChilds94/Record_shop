@@ -22,10 +22,20 @@ end
     @id = result.first['id'].to_i
   end
 
+  # def self.find_by_id()
+  #
+  # end
+
+  def self.show_all()
+    sql = "SELECT * FROM albums"
+    albums = SqlRunner.run(sql)
+    return albums.map {|album| Album.new(album)}
+  end
+
   def self.delete_all()
     sql = "DELETE FROM albums"
     SqlRunner.run(sql)
-  end 
+  end
 
 
 
