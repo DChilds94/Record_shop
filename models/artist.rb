@@ -7,7 +7,7 @@ attr_reader :id
 attr_accessor :name
 
 def initialize(options)
-  # @id = options['id'].to_i
+  @id = options['id'].to_i if options['id']
   @name = options['name']
 end
 
@@ -17,6 +17,15 @@ def save()
   result = SqlRunner.run(sql, values)
   @id = result.first['id'].to_i
 end
+
+
+# def self.find_by_id(id)
+#   sql = "SELECT * FROM artists WHERE id = $1"
+#   values = [@id]
+#   result = SqlRunner.run(sql, values)
+#   return Artist.new(result.first)
+# end
+# currently unable to make work - look at later
 
 def self.show_all()
   sql = "SELECT * FROM artists"
@@ -29,8 +38,11 @@ def self.delete_all()
   SqlRunner.run(sql)
 end
 
+def self.delete_artist(id)
+  sql = "DELETE FROM artists WHERE id = $1;"
+  values = [@id]
+  SqlRunner.run(sql, values)
+end
+
 
 end #end of the class
-
-binding.pry
-nil

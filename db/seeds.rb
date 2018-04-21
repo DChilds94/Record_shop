@@ -2,6 +2,8 @@ require_relative("../models/artist.rb")
 
 require("pry-byebug")
 
+Artist.delete_all()
+
 artist1 = Artist.new({
     "name" => "Oasis"
 })
@@ -27,15 +29,6 @@ artist2.save()
 artist3.save()
 artist4.save()
 artist5.save()
-
-
-
-
-
-
-
-
-
 
 binding.pry
 nil
