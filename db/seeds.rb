@@ -2,8 +2,8 @@ require_relative("../models/artist.rb")
 require_relative("../models/album.rb")
 
 require("pry-byebug")
-
-# Artist.delete_all()
+Album.delete_all()
+Artist.delete_all()
 
 artist1 = Artist.new({
   "name" => "Oasis"
@@ -57,12 +57,6 @@ album4 = Album.new({
     "stock" => 100,
     "artist_id" => artist2.id
     })
-
-# album5 = Album.new({
-#   "title" => "Parklife,
-#   "stock" => 100,
-#   "artist_id" => artist2.id
-#   })
 
 album6 = Album.new({
   "title" => "The Great Escape",
