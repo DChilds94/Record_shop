@@ -1,0 +1,27 @@
+require_relative("../db/sqlrunner.rb")
+require("pry-byebug")
+
+class Album
+
+attr_reader :id
+attr_accessor :title, :stock, :artist_id
+
+def initialize(options)
+  @id = options['id'].to_i if options['id']
+  @title = options['title']
+  @stock = options['stock'].to_i
+  @artist_id = options['artist_id'].to_i
+end
+
+
+
+  def save()
+    sql = "INSERT INTO albums (title, stock, artist_id) VALUES ($1, $2, $3) RETURNING id"
+    values = [@title, @stock, @artist_id]
+    result = SqlRunner.run(sql, values)
+    @id = result.first['id'].to_i
+  end
+
+
+
+end #end of class
