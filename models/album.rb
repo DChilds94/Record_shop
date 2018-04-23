@@ -42,6 +42,13 @@ end
     result = SqlRunner.run(sql, values)
     return result.map {|result| Album.new(result)}
   end
+  #not currently working #
+
+  def update()
+    sql = "UPDATE albums SET title = $1 WHERE id = $2"
+    values = [@title, @id]
+    SqlRunner.run(sql, values)
+  end
 
   def self.delete_all()
     sql = "DELETE FROM albums"

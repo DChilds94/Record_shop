@@ -56,5 +56,5 @@ class Artist
       values = [@name, @id]
       SqlRunner.run(sql, values)
     end
-    # method is displaying a change however, not able to save the update in db - check on Monday
+  
   end
