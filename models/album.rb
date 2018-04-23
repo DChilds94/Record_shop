@@ -5,7 +5,7 @@ require("pry-byebug")
 class Album
 
 attr_reader :id
-attr_accessor :title, :stock, :artist_
+attr_accessor :title, :stock, :artist_id
 
 def initialize(options)
   @id = options['id'].to_i if options['id']

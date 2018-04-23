@@ -1,0 +1,8 @@
+<h1>Stock</h1>
+<% @albums.each do |album| %>
+<ul>
+  <li>Title: <%= album.title %> </li>
+  <li>Stock: <%= album.stock %> </li>
+  <li>Artist ID: <%= album.artist_id %> </li>
+</ul>
+<%end%>
