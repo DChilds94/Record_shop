@@ -36,13 +36,26 @@ end
     return albums.map {|album| Album.new(album)}
   end
 
-  def find_by_artist()
-    sql = "SELECT * FROM artists WHERE id = $1"
-    values = [@artist_id]
+  def self.find_by_artist(artist_id)
+    sql = "SELECT * FROM albums WHERE artist_id = $1"
+    values = [artist_id]
     result = SqlRunner.run(sql, values)
-    return result.map {|result| Album.new(result)}
+    return result.map {|album_hash| Album.new(album_hash)}
   end
-  #not currently working #
+
+  def check_stock()
+    stock_level = @stock
+    case
+    when stock_level == 0
+      return "Out of stock"
+    when stock_level >= 50
+      return "High"
+    when stock_level >= 30
+      return "Medium"
+    when stock_level <= 10
+      return "Low"
+    end
+end
 
   def update()
     sql = "UPDATE albums SET title = $1 WHERE id = $2"
