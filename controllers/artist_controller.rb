@@ -3,7 +3,7 @@ require("sinatra/contrib/all")
 require_relative("../models/album.rb")
 require_relative("../models/artist.rb")
 
-get "/home/artist" do
+get "/artist" do
   @artists = Artist.show_all()
   erb(:"Artist/artist")
 end

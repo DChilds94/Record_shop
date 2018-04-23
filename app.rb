@@ -9,12 +9,12 @@ require_relative("controllers/artist_controller.rb")
 
 #index
 get "/" do
-  erb(:home)
+  erb(:index)
 end
 
 get "/home/stock" do
   @albums = Album.show_all()
-  erb(:stock)
+  erb(:home/stock)
 end
 
 
