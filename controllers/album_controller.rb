@@ -9,6 +9,7 @@ get "/stock" do
 end
 
 get "/stock/new" do
+  @artists = Artist.show_all()
   erb(:"Albums/new")
 end
 
