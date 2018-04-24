@@ -1,0 +1,9 @@
+<p> <%= @artist.name %></p>
+<p> <% albums = @artist.find_albums %> </p>
+
+ <% albums.each do |album| %>
+ <p><%= album.title %></p>
+ <p><%= album.stock %></p>
+
+
+<%end%>

@@ -1,8 +1,8 @@
+<form action="/artist/albums" method="post">
+  <% @artists.each do |artist| %>
+    <a href="/artist/<%= artist.id %>"><%= artist.name %></a>
 
-<% @artists.each do |artist| %>
-
-   <a href="/artist/artist.id"><%= artist.name %></a>
-   <p></p>
 <%end%>
+</form>
 
-<!-- On line four I want to be able to click the artist name and be taken to a page the albums listed to that artist.  -->
+<!-- On line four I want to be able to click the artist name and be taken to a page the albums listed to that artist.  -

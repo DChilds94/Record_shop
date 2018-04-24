@@ -11,3 +11,9 @@ end
 get "/stock/new" do
   erb(:"new")
 end
+
+post "/stock" do
+  album = Album.new(params)
+  album.save()
+  redirect to "/stock"
+end

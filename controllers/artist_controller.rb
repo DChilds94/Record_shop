@@ -8,8 +8,12 @@ get "/artist" do
   erb(:"Artist/artist")
 end
 
-get "/home/artist/:id" do
-  @artist = Artist.find_by_id(params["id"].to_i)
-  @albums = Album.show_all
-  erb(:"Artist/show_albums")
+get "/artist/:id" do
+  @artist = Artist.find_by_id(params["id"])
+  erb(:"Artist/show")
+end
+
+post "/artist/albums" do
+  @id = Artist.find_by_name(params["name"])
+  Artist.find_albums
 end
