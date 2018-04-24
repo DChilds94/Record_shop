@@ -9,7 +9,7 @@ get "/stock" do
 end
 
 get "/stock/new" do
-  erb(:"new")
+  erb(:"Albums/new")
 end
 
 post "/stock" do

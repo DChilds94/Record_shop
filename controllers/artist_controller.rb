@@ -8,12 +8,24 @@ get "/artist" do
   erb(:"Artist/artist")
 end
 
+get "/artist/new" do
+  erb(:"Artist/new")
+end
+
 get "/artist/:id" do
   @artist = Artist.find_by_id(params["id"])
   erb(:"Artist/show")
 end
 
-post "/artist/albums" do
-  @id = Artist.find_by_name(params["name"])
-  Artist.find_albums
+post "/artist" do
+  artist = Artist.new(params)
+  artist.save()
+  redirect to "/artist"
 end
+
+
+
+
+# post "/artists" do
+#   artist = Artist.new(params)
+# end
