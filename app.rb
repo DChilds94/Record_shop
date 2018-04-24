@@ -12,10 +12,6 @@ get "/" do
   erb(:index)
 end
 
-get "/home/stock" do
-  @albums = Album.show_all()
-  erb(:home/stock)
-end
 
 
 

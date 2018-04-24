@@ -7,3 +7,7 @@ get "/stock" do
   @albums = Album.show_all()
   erb(:"Albums/stock")
 end
+
+get "/stock/new" do
+  erb(:"new")
+end
