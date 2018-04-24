@@ -34,59 +34,70 @@ artist5.save()
 album1 = Album.new({
   "title" => "What's the story, Morning Glory",
   "stock" => 100,
+  "genre" => "Rock",
   "artist_id" => artist1.id
   })
 album2 = Album.new({
   "title" => "Dig out your soul",
   "stock" => 160,
+  "genre" => "Rock",
   "artist_id" => artist1.id
   })
 album3 = Album.new({
   "title" => "Definatly Maybe",
   "stock" => 40,
+  "genre" => "Rock",
   "artist_id" => artist1.id
   })
 album4 = Album.new({
   "title" => "The Magic Whip",
   "stock" => 10,
+  "genre" => "Rock",
   "artist_id" => artist2.id
   })
 
   album5 = Album.new({
     "title" => "Parklife",
     "stock" => 100,
+    "genre" => "Rock",
     "artist_id" => artist2.id
     })
 
 album6 = Album.new({
   "title" => "The Great Escape",
   "stock" => 100,
+  "genre" => "Rock",
   "artist_id" => artist2.id
   })
 
 album7 = Album.new({
   "title" => "Ultraist",
   "stock" => 1,
+  "genre" => "Electronic",
   "artist_id" => artist3.id
   })
 album8 = Album.new({
   "title" => "French Kiwi Juice",
   "stock" => 40,
+  "genre" => "Electronic",
   "artist_id" => artist4.id
   })
 album9 = Album.new({
   "title" => "Someone to Love me",
   "stock" => 10,
+  "genre" => "Electronic",
   "artist_id" => artist5.id
   })
 album10 = Album.new({
   "title" => "Here come's the fuzz",
   "stock" => 10,
+  "genre" => "Electronic",
   "artist_id" => artist5.id
   })
 album11 = Album.new({
   "title" => "Stop Me",
   "stock" => 10,
+  "genre" => "Electronic",
   "artist_id" => artist5.id
   })
 

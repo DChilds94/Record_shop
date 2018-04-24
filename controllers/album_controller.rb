@@ -13,11 +13,11 @@ get "/stock/new" do
   erb(:"Albums/new")
 end
 
-
-get "/stock/resupply" do
-  erb(:"Albums/resupply")
+get "/stock/manage" do
+  @artists = Artist.show_all()
+  @albums = Album.show_all()
+  erb(:"Albums/manage")
 end
-
 
 
 post "/stock" do
@@ -26,7 +26,8 @@ post "/stock" do
   redirect to "/stock"
 end
 
-get "/stock/edit" do
-  @albums = Album.show_all()
-  erb(:"Albums/edit")
+post "/stock/manage" do
+  album = Album.new(params)
+  album.update()
+  redirect to "/stock"
 end

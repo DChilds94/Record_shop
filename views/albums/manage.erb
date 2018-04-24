@@ -1,0 +1,26 @@
+<h1> Manage Albums <h1>
+  <form action="/stock/manage" method="post">
+
+    <label for="artist_id">Artist:</label>
+    <select name="artist_id" id="artist_id">
+      <% @artists.each do |artist| %>
+      <option value=<%= artist.id %>> <%= artist.name %> </option>
+      <% end %>
+    </select>
+
+
+    <label for="stock">Stock:</label>
+    <input type="number" name="stock">
+
+
+    <label for="title">Title:</label>
+    <!-- <select name="title" id="title">
+      <% @albums.each do |album| %>
+      <option value=<%= album.id %>> <%= album.title %> </option>
+      <%end%>
+    </select> -->
+
+    <input type="text" id="title" name="title">
+    <input type="submit" value="Submit Changes">
+
+  </form>

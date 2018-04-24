@@ -5,20 +5,21 @@ require("pry-byebug")
 class Album
 
 attr_reader :id
-attr_accessor :title, :stock, :artist_id
+attr_accessor :title, :stock, :genre, :artist_id
 
 def initialize(options)
   @id = options['id'].to_i if options['id']
   @title = options['title']
   @stock = options['stock'].to_i
+  @genre = options["genre"]
   @artist_id = options['artist_id'].to_i
 end
 
 
 
   def save()
-    sql = "INSERT INTO albums (title, stock, artist_id) VALUES ($1, $2, $3) RETURNING id"
-    values = [@title, @stock, @artist_id]
+    sql = "INSERT INTO albums (title, stock, genre, artist_id) VALUES ($1, $2, $3, $4) RETURNING id"
+    values = [@title, @stock, @genre, @artist_id]
     result = SqlRunner.run(sql, values)
     @id = result.first['id'].to_i
   end
@@ -48,8 +49,6 @@ end
     values = [@artist_id]
     result = SqlRunner.run(sql, values)
     Artist.new(result.first).name
-    #artist = result.map {|artist_hash| Artist.new(artist_hash)}
-    #return artist(0)["name"]
   end
 
 
@@ -78,7 +77,10 @@ end
     SqlRunner.run(sql)
   end
 
-
-
-
+  def delete()
+    sql = "DELETE FROM albums WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+  
 end #end of class

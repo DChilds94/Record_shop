@@ -11,5 +11,6 @@ CREATE TABLE albums(
   id SERIAL primary key,
   title VARCHAR(255),
   stock INT,
-  artist_id INT references artists(id)  
+  genre VARCHAR(255),
+  artist_id INT references artists(id)
 );
