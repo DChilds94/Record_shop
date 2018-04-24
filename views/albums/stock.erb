@@ -1,25 +1,51 @@
-<h1>Stock</h1>
-  <a href="/stock/manage"><input type="submit" value="Manage Album"></a>
-  <a href="/"> <input type="submit" value="Home"> </a>
-  <a href="/stock/new"> <input type="submit" value="Add new album"> </a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Rotations Per Minute</title>
+  <link rel="stylesheet" type="text/css" href="/styles/tables.css">
+  <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+  <link rel="stylesheet" type="text/css" href="/styles/forms.css">
 
-<% @albums.each do |album| %>
-<table>
-  <thead>
-    <tr>
-      <th>Title:</th>
-      <th>Stock:</th>
-      <th>Artist:</th>
-      <th>Add Stock</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td> <%= album.title %></td>
-      <td> <%= album.stock %></td>
-      <td> <%= album.find_by_artist() %></td>
-      <td> Add Stock</td>
-    </tr>
-  </tbody>
-</table>
-<%end%>
+</head>
+
+<body>
+  <header>
+    <h1><a href ="/">RPM Records</a></h1>
+  </header>
+    <nav> <a href="/artist">View Artists</a>
+      <a href="/stock">View Albums</a></nav>
+  <main>
+    <section>
+      <h1>Stock</h1>
+        <a href="/stock/manage"><input type="submit" value="Manage Album"></a>
+        <a href="/stock/new"> <input type="submit" value="Add new album"> </a>
+    <table>
+      <colgroup span ="10"></colgroup>
+      <thead>
+      <th>Current Stock Levels</th>
+      <tr>
+        <th>Artist</th>
+        <th>Title</th>
+        <th>Stock</th>
+        <th>Stock Level</th>
+      </tr>
+      <tr>
+            </thead>
+      <% @albums.each do |album| %>
+      <tr>
+        <td> <%= album.find_by_artist() %></td>
+        <td> <%= album.title %></td>
+        <td> <%= album.stock %></td>
+        <td> <%= album.check_stock %></td>
+      </tr>
+      <%end%>
+      </table>
+
+      <section>
+  </main>
+  <footer>
+    <p>Contact Support</p>
+  </footer>
+</body>
+</html>

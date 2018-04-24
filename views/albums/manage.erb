@@ -1,26 +1,44 @@
-<h1> Manage Albums <h1>
-  <form action="/stock/manage" method="post">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Rotations Per Minute</title>
+  <link rel="stylesheet" type="text/css" href="/styles/tables.css">
+  <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+  <link rel="stylesheet" type="text/css" href="/styles/forms.css">
+</head>
+<body>
+  <header>
+    <h1><a href ="/">RPM Records</a></h1>
+  </header>
+  <nav> <a href="/artist">View Artists</a>
+    <a href="/stock">View Albums</a></nav>
+  <main>
+    <h1> Manage Albums <h1>
+      <form action="/stock/manage" method="post">
 
-    <label for="artist_id">Artist:</label>
-    <select name="artist_id" id="artist_id">
-      <% @artists.each do |artist| %>
-      <option value=<%= artist.id %>> <%= artist.name %> </option>
-      <% end %>
-    </select>
+        <label for="artist_id">Artist:</label>
+        <select name="artist_id" id="artist_id">
+          <% @artists.each do |artist| %>
+          <option value=<%= artist.id %>> <%= artist.name %> </option>
+          <% end %>
+        </select>
 
+        <label for="stock">Stock:</label>
+        <input type="number" name="stock">
 
-    <label for="stock">Stock:</label>
-    <input type="number" name="stock">
+        <label for="title">Title:</label>
+        <!-- <select name="title" id="title">
+        <% @albums.each do |album| %>
+        <option value=<%= album.id %>> <%= album.title %> </option>
+        <%end%>
+      </select> -->
 
-
-    <label for="title">Title:</label>
-    <!-- <select name="title" id="title">
-      <% @albums.each do |album| %>
-      <option value=<%= album.id %>> <%= album.title %> </option>
-      <%end%>
-    </select> -->
-
-    <input type="text" id="title" name="title">
-    <input type="submit" value="Submit Changes">
-
-  </form>
+      <input type="text" id="title" name="title">
+      <input type="submit" value="Submit Changes">
+    </form>
+  </main>
+</body>
+<footer>
+  <p>Contact Support</p>
+</footer>

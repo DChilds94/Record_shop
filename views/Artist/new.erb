@@ -1,8 +1,27 @@
-<form action="/artist" method="post">
-
-  <label for="Name">Title:</label>
-  <input type="text" id="name" name="name">
-
-  <input type="submit" value="Add new Artist">
-</form>
-<a href="/"> <input type="submit" value="Home"></a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Rotations Per Minute</title>
+  <link rel="stylesheet" type="text/css" href="/styles/tables.css">
+  <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+  <link rel="stylesheet" type="text/css" href="/styles/forms.css">
+</head>
+<body>
+  <header>
+    <h1><a href ="/">RPM Records</a></h1>
+  </header>
+    <nav> <a href="/artist">View Artists</a>
+      <a href="/stock">View Albums</a>
+    </nav>
+  <main>
+    <form action="/artist" method="post">
+      <label for="Name">Title:</label>
+      <input type="text" id="name" name="name">
+      <input type="submit" value="Add new Artist">
+    </form>
+  </main>
+  <footer>
+    <p>Contact Support</p>
+  </footer>
+</body>

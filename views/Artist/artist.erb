@@ -1,9 +1,28 @@
-<form action="/artist/albums" method="post">
-  <% @artists.each do |artist| %>
-    <a href="/artist/<%= artist.id %>"><%= artist.name %></a>
-
-<%end%>
-</form>
-  <h2> <a href="/artist/new"> <input type="submit" value="Create Artist"></a> </h2>
-<a href="/"> <input type="submit" value="Home"></a>
-<!-- On line four I want to be able to click the artist name and be taken to a page the albums listed to that artist.  -
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Rotations Per Minute</title>
+  <link rel="stylesheet" type="text/css" href="/styles/tables.css">
+  <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+  <link rel="stylesheet" type="text/css" href="/styles/forms.css">
+</head>
+<body>
+  <header>
+    <h1><a href ="/">RPM Records</a></h1>
+  </header>
+    <nav> <a href="/artist">View Artists</a>
+      <a href="/stock">View Albums</a>
+    </nav>
+    <main>
+      <a href="/artist/new"> <input type="submit" value="Create Artist"></a>
+      <ol>
+      <% @artists.each do |artist| %>
+      <li><a href="/artist/<%= artist.id %>"><%= artist.name %></a></li>
+      <%end%>
+      </ol>
+    </main>
+    <footer>
+      <p>Contact Support</p>
+    </footer>
+</body>

@@ -1,21 +1,37 @@
-<form action="/stock" method="post">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Rotations Per Minute</title>
+  <link rel="stylesheet" type="text/css" href="/styles/tables.css">
+  <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+  <link rel="stylesheet" type="text/css" href="/styles/forms.css">
+</head>
+<body>
+  <header>
+    <h1><a href ="/">RPM Records</a></h1>
+  </header>
+    <nav> <a href="/artist">View Artists</a>
+      <a href="/stock">View Albums</a>
+    </nav>
+    <main>
+      <form action="/stock" method="post">
+        <label for="Title">Title:</label>
+        <input type="text" id="title "name="title">
 
-  <label for="Title">Title:</label>
-  <input type="text" id="title "name="title">
+        <label for="Stock">Amount:</label>
+        <input type="number" id="stock" name="stock">
 
-  <label for="Stock">Amount:</label>
-  <input type="number" id="stock" name="stock">
+        <label for="Genre">Amount:</label>
+        <input type="text" id="genre" name="genre">
 
-  <label for="Genre">Amount:</label>
-  <input type="text" id="genre" name="genre">
-
-  <label for="artist_id">Artist:</label>
-  <select name="artist_id" id="artist_id">
-    <% @artists.each do |artist| %>
-      <option value=<%= artist.id %>> <%= artist.name %> </option>
-      <% end %>
-  </select>
-
-
-  <input type="submit" value="Add new Album">
-</form>
+        <label for="artist_id">Artist:</label>
+        <select name="artist_id" id="artist_id">
+          <% @artists.each do |artist| %>
+            <option value=<%= artist.id %>> <%= artist.name %> </option>
+            <% end %>
+        </select>
+        <input type="submit" value="Add new Album">
+      </form>
+    </main>
+</body>
