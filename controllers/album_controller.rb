@@ -13,8 +13,20 @@ get "/stock/new" do
   erb(:"Albums/new")
 end
 
+
+get "/stock/resupply" do
+  erb(:"Albums/resupply")
+end
+
+
+
 post "/stock" do
   album = Album.new(params)
   album.save()
   redirect to "/stock"
+end
+
+get "/stock/edit" do
+  @albums = Album.show_all()
+  erb(:"Albums/edit")
 end

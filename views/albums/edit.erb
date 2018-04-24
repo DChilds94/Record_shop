@@ -1,0 +1,18 @@
+<h1> Edit Albums <h1>
+<form action="/stock" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title">
+
+    <label for="stock">Stock:</label>
+    <input type="number" name="stock">
+    <input type="submit" value="Submit Changes">
+</form>
+
+
+<!--
+<label for="artist_id">Artist:</label>
+<select name="artist_id" id="artist_id">
+  <% @artists.each do |artist| %>
+    <option value=<%= artist.id %>> <%= artist.name %> </option>
+    <% end %>
+</select> -->

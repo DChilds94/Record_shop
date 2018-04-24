@@ -43,6 +43,16 @@ end
     return result.map {|album_hash| Album.new(album_hash)}
   end
 
+  def find_by_artist()
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [@artist_id]
+    result = SqlRunner.run(sql, values)
+    Artist.new(result.first).name
+    #artist = result.map {|artist_hash| Artist.new(artist_hash)}
+    #return artist(0)["name"]
+  end
+
+
   def check_stock()
     stock_level = @stock
     case
@@ -67,6 +77,7 @@ end
     sql = "DELETE FROM albums"
     SqlRunner.run(sql)
   end
+
 
 
 

@@ -1,12 +1,15 @@
 <h1>Stock</h1>
-  <h2><input type="submit" value="Add Stock"></h2>
+  <a href="/stock/resupply"><input type="submit" value="Add Stock"></a>
+  <a href="/"> <input type="submit" value="Home"> </a>
+  <a href="/stock/new"> <input type="submit" value="Add new album"> </a>
+
 <% @albums.each do |album| %>
 <table>
   <thead>
     <tr>
       <th>Title:</th>
       <th>Stock:</th>
-      <th>Artist_id:</th>
+      <th>Artist:</th>
       <th>Add Stock</th>
     </tr>
   </thead>
@@ -14,11 +17,9 @@
     <tr>
       <td> <%= album.title %></td>
       <td> <%= album.stock %></td>
-      <td> <%= album.artist_id %></td>
+      <td> <%= album.find_by_artist() %></td>
       <td> Add Stock</td>
     </tr>
   </tbody>
 </table>
 <%end%>
-<!-- creat a link that takes you to a form to add a new album -->
-<a href="/"> <input type="submit" value="Home"> </a>
