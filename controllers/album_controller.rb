@@ -13,9 +13,11 @@ get "/stock/new" do
   erb(:"Albums/new")
 end
 
-get "/stock/manage" do
+
+get "/stock/:id/manage" do
   @artists = Artist.show_all()
   @albums = Album.show_all()
+  @album = Album.find_by_id(params[:id])
   erb(:"Albums/manage")
 end
 
@@ -29,5 +31,11 @@ end
 post "/stock/manage" do
   album = Album.new(params)
   album.update()
+  redirect to "/stock"
+end
+
+post "/stock/:id/delete" do
+  album = Album.find_by_id(params['id'])
+  album.delete
   redirect to "/stock"
 end

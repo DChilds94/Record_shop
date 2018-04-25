@@ -11,11 +11,13 @@
   <header>
     <h1><a href ="/">RPM Records</a></h1>
   </header>
-    <nav> <a href="/artist">View Artists</a>
-      <a href="/stock">View Albums</a>
+    <nav>
+      <a href="/artist"> <input type="submit" value="View Artist"></a>
+      <a href="/stock"> <input type="submit" value="View Albums"></a>
+      <a href="/artist/new"> <input type="submit" value="Create Artist"></a>
+      <a href="/stock/new"> <input type="submit" value="Add new album"> </a>
     </nav>
     <main>
-      <a href="/artist/new"> <input type="submit" value="Create Artist"></a>
       <ol>
       <% @artists.each do |artist| %>
       <li><a href="/artist/<%= artist.id %>"><%= artist.name %></a></li>

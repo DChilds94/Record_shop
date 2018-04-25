@@ -11,25 +11,34 @@
   <header>
     <h1><a href ="/">RPM Records</a></h1>
   </header>
-    <nav> <a href="/artist">View Artists</a>
-      <a href="/stock">View Albums</a>
+    <nav>
+      <a href="/artist"> <input type="submit" value="View Artist"></a>
+      <a href="/stock"> <input type="submit" value="View Albums"></a>
+      <a href="/artist/new"> <input type="submit" value="Create Artist"></a>
+      <a href="/stock/new"> <input type="submit" value="Add New Album"> </a>
     </nav>
     <main>
       <table>
-        <caption> <%= @artist.name %> </caption>
+        <caption> Albums  </caption>
 
         <thead>
           <tr>
+            <th>Artist</th>
             <th>Title</th>
+            <th>Genre</th>
             <th>Stock</th>
+            <th>Stock Level</th>
           </tr>
         </thead>
         <tbody>
           <% albums = @artist.find_albums %>
           <% albums.each do |album| %>
           <tr>
+            <td><%= album.find_by_artist() %></td>
             <td><%= album.title %></td>
+            <td><%= album.genre %></td>
             <td><%= album.stock %></td>
+            <td> <%= album.check_stock %></td>
           </tr>
           <%end%>
         </tbody>

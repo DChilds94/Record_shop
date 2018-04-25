@@ -11,32 +11,41 @@
   <header>
     <h1><a href ="/">RPM Records</a></h1>
   </header>
-  <nav> <a href="/artist">View Artists</a>
-    <a href="/stock">View Albums</a></nav>
+  <nav>
+    <a href="/artist"> <input type="submit" value="View Artist"></a>
+    <a href="/stock"> <input type="submit" value="View Albums"></a>
+  </nav>
   <main>
     <h1> Manage Albums <h1>
       <form action="/stock/manage" method="post">
+        <input type="hidden" value="<%= @album.id %>" name="id">
 
         <label for="artist_id">Artist:</label>
+
         <select name="artist_id" id="artist_id">
           <% @artists.each do |artist| %>
-          <option value=<%= artist.id %>> <%= artist.name %> </option>
+          <option <%= "selected" if artist.id == @album.artist_id %>  value=<%= artist.id %>> <%= artist.name %> </option>
           <% end %>
         </select>
-
         <label for="stock">Stock:</label>
-        <input type="number" name="stock">
+        <input type="number" value=<%= @album.stock %> name="stock">
 
         <label for="title">Title:</label>
-        <!-- <select name="title" id="title">
+        <select name="title" id="title">
         <% @albums.each do |album| %>
-        <option value=<%= album.id %>> <%= album.title %> </option>
+        <option <%= "selected" if album.title == @album.title%> value="<%= album.title %>"> <%= album.title %> </option>
         <%end%>
-      </select> -->
+      </select>
 
-      <input type="text" id="title" name="title">
+      <label for="genre">Genre:</label>
+      <select name="genre" id="genre">
+      <% @albums.each do |album| %>
+      <option <%= "selected" if album.genre == @album.genre%> value="<%= album.genre%>"> <%= album.genre %></option>
+      <%end%>
+
       <input type="submit" value="Submit Changes">
     </form>
+
   </main>
 </body>
 <footer>

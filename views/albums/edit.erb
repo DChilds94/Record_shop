@@ -8,21 +8,25 @@
   <header>
     <h1><a href ="/">RPM Records</a></h1>
   </header>
-  <nav> <a href="/artist">View Artists</a>
-    <a href="/stock">View Albums</a></nav>
+  <nav>
+    <a href="/artist"> <input type="submit" value="View Artist"></a>
+    <a href="/stock"> <input type="submit" value="View Albums"></a>
+    <main>
+      <h1> Edit Albums <h1>
+      <form action="/stock" method="post">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title">
+
+          <label for="stock">Stock:</label>
+          <input type="number" name="stock">
+          <input type="submit" value="Submit Changes">
+      </form>
+
+    </main>
   </body>
 
 
 
-<h1> Edit Albums <h1>
-<form action="/stock" method="post">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title">
-
-    <label for="stock">Stock:</label>
-    <input type="number" name="stock">
-    <input type="submit" value="Submit Changes">
-</form>
 
 
 <!--

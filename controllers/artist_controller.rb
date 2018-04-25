@@ -22,10 +22,3 @@ post "/artist" do
   artist.save()
   redirect to "/artist"
 end
-
-
-
-
-# post "/artists" do
-#   artist = Artist.new(params)
-# end

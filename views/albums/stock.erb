@@ -13,13 +13,16 @@
   <header>
     <h1><a href ="/">RPM Records</a></h1>
   </header>
-    <nav> <a href="/artist">View Artists</a>
-      <a href="/stock">View Albums</a></nav>
+    <nav>
+      <a href="/artist"> <input type="submit" value="View Artist"></a>
+      <a href="/stock"> <input type="submit" value="View Albums"></a>
+      <a href="/artist/new"> <input type="submit" value="Create Artist"></a>
+      <a href="/stock/new"> <input type="submit" value="Add New Album"> </a>
+    </nav>
   <main>
     <section>
       <h1>Stock</h1>
-        <a href="/stock/manage"><input type="submit" value="Manage Album"></a>
-        <a href="/stock/new"> <input type="submit" value="Add new album"> </a>
+
     <table>
       <colgroup span ="10"></colgroup>
       <thead>
@@ -27,17 +30,22 @@
       <tr>
         <th>Artist</th>
         <th>Title</th>
+        <th>Genre</th>
         <th>Stock</th>
         <th>Stock Level</th>
       </tr>
       <tr>
-            </thead>
+      </thead>
       <% @albums.each do |album| %>
       <tr>
         <td> <%= album.find_by_artist() %></td>
         <td> <%= album.title %></td>
+        <td> <%= album.genre %></td>
         <td> <%= album.stock %></td>
         <td> <%= album.check_stock %></td>
+        <td> <a href="/stock/<%= album.id%>/manage"><input type="submit" value="Manage Album"></a> </td>
+        <td> <form action="/stock/<%=album.id%>/delete" method="post">
+        <input type="submit" value="remove album"> </form> </td>
       </tr>
       <%end%>
       </table>

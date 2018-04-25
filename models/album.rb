@@ -24,6 +24,13 @@ end
     @id = result.first['id'].to_i
   end
 
+  def find()
+    sql = "SELECT * FROM albums WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return Album.new(result.first)
+  end
+
   def self.find_by_id(id)
     sql = "SELECT * FROM albums WHERE id = $1"
     values = [id]
@@ -67,8 +74,8 @@ end
 end
 
   def update()
-    sql = "UPDATE albums SET title = $1 WHERE id = $2"
-    values = [@title, @id]
+    sql = "UPDATE albums SET (title, stock, genre) = ($1, $2, $3) WHERE id = $4"
+    values = [@title, @stock, @genre, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -82,5 +89,5 @@ end
     values = [@id]
     SqlRunner.run(sql, values)
   end
-  
+
 end #end of class
