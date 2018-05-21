@@ -1,4 +1,16 @@
-table {
+/* table {
+  paddi
   justify-content: center;
-  border: solid teal;
+  /* border: solid #2F4F4F; */
+  /* padding: 15px;
+  font-family: courier new;
+
+} */
+
+th, tr {
+  padding: 10px;
+  text-align: left;
+  justify-content: flex-end;
+  font-family: monospace;
+  border-bottom: #8A2BE2
 }

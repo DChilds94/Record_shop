@@ -15,8 +15,6 @@ def initialize(options)
   @artist_id = options['artist_id'].to_i
 end
 
-
-
   def save()
     sql = "INSERT INTO albums (title, stock, genre, artist_id) VALUES ($1, $2, $3, $4) RETURNING id"
     values = [@title, @stock, @genre, @artist_id]
@@ -66,7 +64,7 @@ end
       return "Out of stock"
     when stock_level >= 50
       return "High"
-    when stock_level >= 30
+    when stock_level >= 11
       return "Medium"
     when stock_level <= 10
       return "Low"

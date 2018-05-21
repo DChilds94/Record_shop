@@ -26,7 +26,7 @@ class Artist
     result = SqlRunner.run(sql, values)
     return Artist.new(result.first)
   end
-  
+
   def self.find_by_name(name)
     sql = "SELECT * FROM artists WHERE name = $1"
     values = [name]

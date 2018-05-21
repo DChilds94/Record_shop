@@ -18,7 +18,7 @@ def setup()
     })
   @album3 = Album.new({
     "title" => "Album_title",
-    "stock" => 49,
+    "stock" => 12,
     "artist_id" => "artist_id"
     })
   @album4 = Album.new({
@@ -35,22 +35,10 @@ end
 
   def test_check_stock_high()
     assert_equal("High", @album1.check_stock)
-  end
-
-  def test_check_stock_zero()
     assert_equal("Out of stock", @album2.check_stock)
-  end
-
-  def test_check_stock_medium()
     assert_equal("Medium", @album3.check_stock)
-  end
-
-  def test_check_stock_low()
     assert_equal("Low", @album4.check_stock)
-  end
-
-  def test_check_stock__one()
     assert_equal("Low", @album5.check_stock)
-  end
+  end 
 
 end
